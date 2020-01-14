@@ -1,14 +1,24 @@
  /* Header --------------------------------------- */
 
 
- .headerAfbeelding {
+ header > img {
      width: 100%;
      border-bottom: 0.5rem white solid;
      height: 30em;
      filter: grayscale(90%);
  }
 
- .logo {}
+ p {
+     position: absolute;
+     top: 12%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: #F7D3EF;
+     text-transform: uppercase;
+     font-family: 'Martel', serif;
+     font-size: 3em;
+     text-align: center
+ }
 
 
  /* bron voor hamburger menu: https://codepen.io/Guilano/pen/jOOgZKE */
@@ -88,7 +98,7 @@ dit is het eerste streepje van het menu, deze maak je aan door ::after (zet iets
      transform: translateX(0);
  }
 
- ul:first-child {
+ nav > ul {
      list-style-type: none;
      line-height: 6em;
  }
@@ -149,12 +159,8 @@ dit is het eerste streepje van het menu, deze maak je aan door ::after (zet iets
      background-color: black;
  }
 
- .hover {
-     display: grid;
-     grid-template-columns: 1fr;
- }
 
- .kleding {
+ main > img {
      display: grid;
      grid-template-columns: 1fr;
      border: 20px solid white;
