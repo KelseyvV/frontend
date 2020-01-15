@@ -6,12 +6,24 @@ Bron complete guide to flexbox: https://css-tricks.com/snippets/css/a-guide-to-f
 
 /*----------   Device: kleiner dan 900px       ----- */
 
+
+body {
+    background: linear-gradient(to top, #000000, #1D1C1C, #3D3D3D, #605F5F);
+}
+
+
 /* Header ----- */
 header > img {
     width: 100%;
     border-bottom: 1rem #F7D3EF solid;
     height: auto;
     filter: grayscale(100%);
+    transition: 2s;
+
+}
+
+header > img:hover {
+    transform: scale(1.05);
 }
 
 /* Bron overlappen tekst: https://www.w3schools.com/howto/howto_css_image_text.asp */
@@ -26,8 +38,15 @@ header > p {
     font-weight: bold;
     font-size: 4em;
     text-align: center;
+    text-shadow: 4px 1px #FC00D4;
+    transition: 2s;
+
 }
 
+header > p:hover {
+    color: #FC00D4;
+    letter-spacing: 0.2em;
+}
 
 
 /* Hamburger menu -- */
@@ -96,7 +115,7 @@ span::after {
 
 nav {
     transform: translateX(-100%);
-    background: #F7D3EF;
+    background: linear-gradient(to right, #F8AFEF, #FB94EE, #F85FE5);
     margin-top: 1rem;
     border-left: 1rem white solid;
     width: 40%;
@@ -124,10 +143,16 @@ a {
     font-size: 2rem;
     border-bottom: 0.1em solid white;
 
+
+}
+
+a:hover {
+    color: #FC00D4;
+    text-decoration: underline;
 }
 
 a:active {
-    color: #535353;
+    color: #FC00D4;
     text-decoration: underline;
 }
 
@@ -166,9 +191,7 @@ a:active {
     transition-delay: 0ms, 0ms;
 }
 
-body {
-    background-color: black;
-}
+
 
 
 
