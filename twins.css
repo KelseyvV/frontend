@@ -10,13 +10,14 @@ Bron complete guide to flexbox: https://css-tricks.com/snippets/css/a-guide-to-f
 header > img {
     width: 100%;
     border-bottom: 1rem #F7D3EF solid;
-    height: 30em;
+    height: auto;
     filter: grayscale(100%);
 }
 
 /* Bron overlappen tekst: https://www.w3schools.com/howto/howto_css_image_text.asp */
 header > p {
-    position: absolute;
+    width: 100%;
+    height: auto;
     top: 2.5em;
     left: 0.5em;
     color: #F7D3EF;
@@ -106,6 +107,8 @@ nav.active {
     transform: translateX(0);
 }
 
+/*-- Einde Hamburger menu -- */
+
 nav > ul {
     list-style-type: none;
     line-height: 6em;
@@ -170,9 +173,15 @@ body {
 
 
 /* Afbeeldingen grid ------*/
-main > img {
+
+.hover {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
+}
+
+main > img {
+    display: flex;
+    flex-direction: row;
     border: 20px solid white;
     box-shadow: 10px 10px 5px #F7D3EF;
     padding: 5px;
@@ -191,6 +200,7 @@ main > img {
 footer > ul:first-child {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 1em 0em 3em 0em;
     text-align: center;
     background-color: white;
@@ -223,15 +233,89 @@ li {
 /* Formulier ------------------------------------ */
 
 
+/* Opmaak formulieren bron: https://codepen.io/rouws/pen/PdvoLJ?editors=1100*/
+
+form {
+    width: 40em;
+    margin: auto;
+    padding: 1rem;
+    line-height: 2.5rem;
+    background-color: #F7D3EF;
+    font-family: 'Martel', serif;
+    font-size: 1.5em;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    font-weight: bolder;
+    font-size: 2.5rem;
+    margin: auto;
+}
+
+
+input {
+    font-size: 1.5rem;
+    border: none;
+    font-family: 'Martel', serif;
+    margin-bottom: 1em;
+}
+
+/* Wanneer je in het input vak staat */
+input:focus,
+input[type="radio"]:focus {
+    outline: 2px solid #FC00D4;
+    outline-offset: 5px;
+}
+
+
+input[type="text"] {
+    width: 100%;
+    height: 3rem;
+    padding: 0 0 0 1em;
+}
+
+button[type="submit"] {
+    width: 100%;
+    height: 4rem;
+    border: none;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    position: relative;
+    background-color: #FF67E7;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #FC00D4;
+}
+
+button[type="submit"]:focus {
+    outline: 2px solid #FC00D4;
+    outline-offset: 5px;
+}
+
+
+
+
+
 
 
 
 /* Device: tablet --------------------------------------- */
 @media (min-width: 900px) {
 
+
+
+
+    /* Afbeeldingen grid ------*/
+
     .hover {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: auto auto;
     }
 
     .kleding {
@@ -247,7 +331,8 @@ li {
 
     footer > ul:first-child {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
         padding: 1em 0em 3em 0em;
         text-align: center;
         background-color: white;
@@ -285,7 +370,7 @@ li {
 
     .hover {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: auto auto auto;
     }
 
     .kleding {
@@ -298,10 +383,10 @@ li {
 
 
     /* Footer --------------------------------------- */
-
     footer > ul:first-child {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
         padding: 1em 0em 3em 0em;
         text-align: center;
         background-color: white;
@@ -340,113 +425,19 @@ li {
 /* Device: laptop --------------------------------------- */
 @media (min-width: 1390px) {
 
+    header > p {
 
-    .headerAfbeelding {
-        width: 0%;
-        height: 0em;
-    }
-
-    /* bron voor hamburger menu: https://codepen.io/Guilano/pen/jOOgZKE */
-    div {
-        width: 10rem;
-        height: 6rem;
-        position: relative;
-        display: flex;
-        align-items: center;
-        margin: 4rem 4rem 4rem 4rem;
-    }
-
-    span {
-        height: 0.4rem;
-        width: 5rem;
-        display: block;
-        background: #F7D3EF;
-        /* ronde hoeken middelste streepje */
-        border-radius: 0.3rem;
-    }
-
-    /* dit is het eerste streepje van het menu, deze maak je aan door ::before  (zet iets 'before' de span)
-dit is het eerste streepje van het menu, deze maak je aan door ::after (zet iets 'after' de span)*/
-    span::before,
-    span::after {
-        /* zonder komen de streepjes niet, waarom?*/
-        content: '';
-        /* waarom .4rem bijv? */
-        height: 0.4rem;
-        width: 5rem;
-        /* absolute: element kan overal op de pagina geplaatst worden */
-        position: absolute;
-        background: #F7D3EF;
-        /* ronde hoeken streepjes */
-        border-radius: 0.3rem;
-        /* waarom . ? */
-        transition: 0.3s;
-    }
-
-
-    span::before {
-        top: 0rem;
-    }
-
-    span::after {
-        bottom: 0em;
-    }
-
-    .menu.active span {
-        /* rgba(0, 0, 0, 0), zo maak je het middelste streepje doorzichtig */
-        background: rgba(0, 0, 0, 0);
-        transition: .5s;
-    }
-
-    .menu.active span::before {
-        /* 135 graden (degrees) draaien, streepje 1 */
-        transform: rotate(135deg);
-        top: 20px;
-    }
-
-    .menu.active span::after {
-        /* 135 graden (degrees) draaien, streepje 1 */
-        transform: rotate(225deg);
-        top: 20px;
-    }
-
-    nav {
-        transform: translateX(-100%);
-        background: #F7D3EF;
-        margin-top: 1rem;
-        border-left: 1rem white solid;
-        width: 40%;
-        transition: 0.1s;
-    }
-
-    nav.active {
-        transform: translateX(0);
-    }
-
-    ul:first-child {
-        list-style-type: none;
-        line-height: 6em;
-    }
-
-    a {
-        display: block;
-        text-decoration: none;
-        text-align: left;
+        width: 100%;
+        height: auto;
+        top: 4em;
+        left: 0.5em;
+        color: #F7D3EF;
         text-transform: uppercase;
         font-family: 'Martel', serif;
-        color: black;
-        font-size: 0.8rem;
-        border-bottom: 0.1em solid white;
-        height: 70px;
-
+        font-weight: bold;
+        font-size: 8em;
+        text-align: center;
     }
-
-    a:hover {
-        color: #535353;
-        text-decoration: underline;
-    }
-
-
 
 
     /* Main grid -------------------------------------------------- */
@@ -470,7 +461,8 @@ dit is het eerste streepje van het menu, deze maak je aan door ::after (zet iets
 
     footer > ul:first-child {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
         padding: 1em 0em 3em 0em;
         text-align: center;
         background-color: white;
