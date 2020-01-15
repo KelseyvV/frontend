@@ -11,7 +11,9 @@
 <body>
     <header>
         <img class="headerAfbeelding" src="winkel.png" alt="Winkel Twinsfashion"> <!-- afbeelding van de winkel -->
+        <p>Welkom bij Twins Fashion</p>
         <!-- middelste streepje voor hamburger aanmaken -->
+        <!-- div en span zeggen niets over de inhoud ervan, alleen nodig voor de streepjes -->
         <div class="menu">
             <span class="link"></span>
         </div>
@@ -27,19 +29,49 @@
     <form action="">
         <fieldset>
             <legend>Contact gegevens</legend>
-            <label for="">
-                <input type="text" id="">
+            <label for="naam"> Voornaam
+                <input type="text" id="naam">
+            </label>
+            <label for="achternaam"> Achternaam
+                <input type="text" id="achternaam">
+            </label>
+            <label for="E-mail"> E-mail
+                <input type="text" id="E-mail">
             </label>
         </fieldset>
         <fieldset>
-            <legend>Contact gegevens</legend>
-            <label for="">
-                <input type="text" id="">
+            <legend></legend>
+            <label for="Rating"> Radio
+                <input type="radio" id="Rating">
             </label>
         </fieldset>
         <button type="submit">Verstuur</button>
+
+
     </form>
 
+    <footer>
+        <ul>
+            <li>
+                <h2>Adres</h2>
+                <ul>
+                    <li>De Stient 21</li>
+                    <li>1132 BE Volendam</li>
+                </ul>
+            </li>
+            <li>
+                <h2>Contact</h2>
+                <ul>
+                    <li>Tel: +31(0)299-324450</li>
+                    <li>Email: info@twinsfashion.nl</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>©2019 Copyright Twinsfashion.nl</li>
+        </ul>
+    </footer>
+    <!-- koppelen aan js -->
     <script src="twins.js"></script>
 </body>
 
