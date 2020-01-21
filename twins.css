@@ -1,9 +1,3 @@
-/* Bron CSS selectors: https://www.w3schools.com/cssref/css_selectors.asp
-Bron complete guide to grid: https://css-tricks.com/snippets/css/complete-guide-grid/ 
-Bron complete guide to flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
-
-
-
 /*----------   Device: kleiner dan 900px       ----- */
 
 
@@ -15,7 +9,7 @@ body {
 /* Header ----- */
 header > img {
     width: 100%;
-    border-bottom: 1rem #F7D3EF solid;
+    border-bottom: 0.4rem #F7D3EF solid;
     height: auto;
     filter: grayscale(100%);
     transition: 2s;
@@ -26,43 +20,21 @@ header > img:hover {
     transform: scale(1.05);
 }
 
-/* Bron overlappen tekst: https://www.w3schools.com/howto/howto_css_image_text.asp */
-header > p {
-    width: 100%;
-    height: auto;
-    top: 2.5em;
-    left: 0.5em;
-    color: #F7D3EF;
-    text-transform: uppercase;
-    font-family: 'Martel', serif;
-    font-weight: bold;
-    font-size: 4em;
-    text-align: center;
-    text-shadow: 4px 1px #FC00D4;
-    transition: 2s;
-
-}
-
-header > p:hover {
-    color: #FC00D4;
-    letter-spacing: 0.2em;
-}
 
 
 /* Hamburger menu -- */
 /* bron voor hamburger menu: https://codepen.io/Guilano/pen/jOOgZKE */
 div {
-    width: 10rem;
+    width: 4rem;
     height: 6rem;
     position: relative;
     display: flex;
     align-items: center;
-    margin: 4rem;
 }
 
-span {
-    height: 0.8rem;
-    width: 7rem;
+.line1 {
+    width: 3rem;
+    height: 0.3rem;
     display: block;
     background: #F7D3EF;
     /* ronde hoeken middelste streepje */
@@ -71,13 +43,11 @@ span {
 
 /* dit is het eerste streepje van het menu, deze maak je aan door ::before  (zet iets 'before' de span)
 dit is het eerste streepje van het menu, deze maak je aan door ::after (zet iets 'after' de span)*/
-span::before,
-span::after {
-    /* zonder komen de streepjes niet, waarom?*/
+.line1::before,
+.line1::after {
     content: '';
-    /* waarom .4rem bijv? */
-    height: 0.8rem;
-    width: 7rem;
+    height: 0.3rem;
+    width: 3rem;
     /* absolute: element kan overal op de pagina geplaatst worden */
     position: absolute;
     background: #F7D3EF;
@@ -87,27 +57,28 @@ span::after {
     transition: 0.3s;
 }
 
-span::before {
-    top: 0rem;
+.line1::before {
+    top: 1rem;
 }
 
-span::after {
-    bottom: 0em;
+.line1::after {
+    bottom: 1em;
 }
 
-.menu.active span {
+/* Active: gebruiker moet 'button' activeren, klik */
+.menu.active .line1 {
     /* rgba(0, 0, 0, 0), zo maak je het middelste streepje doorzichtig */
     background: rgba(0, 0, 0, 0);
     transition: .5s;
 }
 
-.menu.active span::before {
+.menu.active .line1::before {
     /* 135 graden (degrees) draaien, streepje 1 */
     transform: rotate(135deg);
     top: 20px;
 }
 
-.menu.active span::after {
+.menu.active .line1::after {
     /* 135 graden (degrees) draaien, streepje 1 */
     transform: rotate(225deg);
     top: 20px;
@@ -117,11 +88,13 @@ nav {
     transform: translateX(-100%);
     background: linear-gradient(to right, #F8AFEF, #FB94EE, #F85FE5);
     margin-top: 1rem;
-    border-left: 1rem white solid;
-    width: 40%;
+    border-left: 0.5rem white solid;
+    width: 20em;
     transition: 0.1s;
 }
 
+/* Active: gebruiker moet 'button' activeren, klik */
+/* translateX in en uit schuiven van de nav */
 nav.active {
     transform: translateX(0);
 }
@@ -130,7 +103,7 @@ nav.active {
 
 nav > ul {
     list-style-type: none;
-    line-height: 6em;
+    line-height: 3em;
 }
 
 a {
@@ -140,7 +113,7 @@ a {
     text-transform: uppercase;
     font-family: 'Martel', serif;
     color: black;
-    font-size: 2rem;
+    font-size: 0.8rem;
     border-bottom: 0.1em solid white;
 
 
@@ -157,35 +130,75 @@ a:active {
 }
 
 
+/* Opmaak formulieren bron: https://codepen.io/rouws/pen/PdvoLJ?editors=1100*/
+
+
+
+
+
 
 
 /* Main ------*/
-/* bron: https://codepen.io/shshaw/pen/wWQZEB */
-/* SIBLING FADE: fade out siblings around a hovered item */
 
+/* Tekst*/
+article > h1 {
+    color: #F7D3EF;
+    text-transform: uppercase;
+    font-family: 'Martel', serif;
+    font-weight: bold;
+    font-size: 2.1em;
+    text-align: center;
+    text-shadow: 4px 1px #FC00D4;
+    transition: 2s;
+    width: 200px;
+    margin: auto;
+
+}
+
+article > p {
+    color: #F7D3EF;
+    font-family: 'Martel', serif;
+    font-size: 0.7em;
+    text-align: center;
+    transition: 2s;
+    width: 200px;
+    margin: auto;
+
+}
+
+article > h1:hover {
+    color: #FC00D4;
+    letter-spacing: 0.05em;
+}
+
+
+
+/* Afbeeldingen */
+/* bron: https://codepen.io/shshaw/pen/wWQZEB */
 /* Hidden neemt nog steeds de ruimte in op de pagina*/
-.hover {
+main > img {
     visibility: hidden;
+
 }
 
 /* Visible maakt de foto's zichtbaar op de pagina */
-.hover {
+main > img {
     visibility: visible;
 }
 
 /*Selecteert alle elementen met de class .kleding  waarvan de parent is een element van de class .hover */
-.hover > .kleding {
+main > img {
     transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
 }
 
 /* Makes the fades smooth with a slight delay to prevent jumps as the mouse moves between items */
-.hover:hover > .kleding {
+main:hover > img {
     opacity: 0.4;
     transform: scale(0.9);
 }
 
 /* 'Fade out' alle foto's wanneer er over 1 foto wordt 'gehoverd' */
-.hover > .kleding:hover {
+main > img:hover {
     opacity: 1;
     transform: scale(1.1);
     transition-delay: 0ms, 0ms;
@@ -193,27 +206,26 @@ a:active {
 
 
 
-
-
 /* Afbeeldingen grid ------*/
 
-.hover {
+main {
     display: grid;
     grid-template-columns: auto;
 }
 
 main > img {
-    display: flex;
-    flex-direction: row;
-    border: 20px solid white;
-    box-shadow: 10px 10px 5px #F7D3EF;
+
+    border: 10px solid white;
+    box-shadow: 5px 5px 5px #F7D3EF;
     padding: 5px;
-    width: 600px;
+    width: 350px;
     margin: 20px auto 20px auto;
 }
 
-.kleding:last-child {
-    margin: 20px auto 80px auto;
+
+
+main > img:last-child {
+    margin: 20px auto 40px auto;
 }
 
 
@@ -229,9 +241,7 @@ footer > ul:first-child {
     background-color: white;
     text-decoration: none;
     font-family: 'Martel', serif;
-    font-size: 1.5em;
-
-
+    font-size: 0.5em;
 }
 
 footer > ul:nth-child(2) {
@@ -242,7 +252,7 @@ footer > ul:nth-child(2) {
     background-color: #F7D3EF;
     text-decoration: none;
     font-family: 'Martel', serif;
-    font-size: 1.2em;
+    font-size: 0.4em;
 
 }
 
@@ -256,16 +266,15 @@ li {
 /* Formulier ------------------------------------ */
 
 
-/* Opmaak formulieren bron: https://codepen.io/rouws/pen/PdvoLJ?editors=1100*/
 
 form {
-    width: 40em;
-    margin: auto;
+    width: 60%;
+    margin: auto auto 40px auto;
     padding: 1rem;
     line-height: 2.5rem;
     background-color: #F7D3EF;
     font-family: 'Martel', serif;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 fieldset {
@@ -274,13 +283,13 @@ fieldset {
 
 legend {
     font-weight: bolder;
-    font-size: 2.5rem;
+    font-size: 1.2rem;
     margin: auto;
 }
 
 
 input {
-    font-size: 1.5rem;
+    font-size: 0.8rem;
     border: none;
     font-family: 'Martel', serif;
     margin-bottom: 1em;
@@ -296,16 +305,16 @@ input[type="radio"]:focus {
 
 input[type="text"] {
     width: 100%;
-    height: 3rem;
+    height: 2rem;
     padding: 0 0 0 1em;
 }
 
 button[type="submit"] {
     width: 100%;
-    height: 4rem;
+    height: 3rem;
     border: none;
     margin: 1rem 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     position: relative;
     background-color: #FF67E7;
@@ -329,74 +338,30 @@ button[type="submit"]:focus {
 
 
 /* Device: tablet --------------------------------------- */
-@media (min-width: 900px) {
+@media (min-width: 710px) {
 
 
+    article > h1 {
+        color: #F7D3EF;
+        text-transform: uppercase;
+        font-family: 'Martel', serif;
+        font-weight: bold;
+        font-size: 2.5em;
+        text-align: center;
+        text-shadow: 4px 1px #FC00D4;
+        transition: 2s;
+        width: 200px;
+    }
 
 
     /* Afbeeldingen grid ------*/
 
-    .hover {
+    main {
         display: grid;
         grid-template-columns: auto auto;
     }
 
-    .kleding {
-        border: 10px solid white;
-        box-shadow: 5px 5px 2px #F7D3EF;
-        padding: 5px;
-        width: 400px;
-        margin: 20px auto 20px auto;
-    }
-
-
-    /* Footer --------------------------------------- */
-
-    footer > ul:first-child {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        padding: 1em 0em 3em 0em;
-        text-align: center;
-        background-color: white;
-        text-decoration: none;
-        font-family: 'Martel', serif;
-        font-size: 1.5em;
-
-
-    }
-
-    footer > ul:nth-child(2) {
-        display: flex;
-        flex-direction: column;
-        padding: 0.5em 0em 0.5em 0em;
-        text-align: center;
-        background-color: #F7D3EF;
-        text-decoration: none;
-        font-family: 'Martel', serif;
-        font-size: 1.2em;
-
-    }
-
-    li {
-        list-style-type: none;
-
-    }
-
-
-
-}
-
-
-/* Device: laptop --------------------------------------- */
-@media (min-width: 1100px) {
-
-    .hover {
-        display: grid;
-        grid-template-columns: auto auto auto;
-    }
-
-    .kleding {
+    main > img {
         border: 10px solid white;
         box-shadow: 5px 5px 2px #F7D3EF;
         padding: 5px;
@@ -406,16 +371,18 @@ button[type="submit"]:focus {
 
 
     /* Footer --------------------------------------- */
+
+
     footer > ul:first-child {
         display: flex;
         flex-direction: row;
         justify-content: center;
         padding: 1em 0em 3em 0em;
-        text-align: center;
         background-color: white;
         text-decoration: none;
         font-family: 'Martel', serif;
-        font-size: 1.5em;
+        font-size: 0.5em;
+        text-align: center;
 
 
     }
@@ -428,7 +395,7 @@ button[type="submit"]:focus {
         background-color: #F7D3EF;
         text-decoration: none;
         font-family: 'Martel', serif;
-        font-size: 1.2em;
+        font-size: 0.5em;
 
     }
 
@@ -442,56 +409,36 @@ button[type="submit"]:focus {
 }
 
 
-
-
-
 /* Device: laptop --------------------------------------- */
-@media (min-width: 1390px) {
+@media (min-width: 920px) {
 
-    header > p {
-
-        width: 100%;
-        height: auto;
-        top: 4em;
-        left: 0.5em;
-        color: #F7D3EF;
-        text-transform: uppercase;
-        font-family: 'Martel', serif;
-        font-weight: bold;
-        font-size: 8em;
-        text-align: center;
-    }
-
-
-    /* Main grid -------------------------------------------------- */
-
-    .hover {
+    main {
         display: grid;
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: auto auto auto;
     }
 
-    .kleding {
+    main > img {
         border: 10px solid white;
         box-shadow: 5px 5px 2px #F7D3EF;
         padding: 5px;
-        width: 300px;
+        width: 280px;
         margin: 20px auto 20px auto;
     }
 
 
+    /* Footer --------------------------------------- */
 
-    /* Footer --------------------------------------------------- */
 
     footer > ul:first-child {
         display: flex;
         flex-direction: row;
         justify-content: center;
         padding: 1em 0em 3em 0em;
-        text-align: center;
         background-color: white;
         text-decoration: none;
         font-family: 'Martel', serif;
-        font-size: 1.5em;
+        font-size: 0.5em;
+        text-align: center;
 
 
     }
@@ -504,13 +451,84 @@ button[type="submit"]:focus {
         background-color: #F7D3EF;
         text-decoration: none;
         font-family: 'Martel', serif;
-        font-size: 1.2em;
+        font-size: 0.5em;
+    }
+
+
+    form {
+        width: 50%;
+        margin: auto auto 40px auto;
+        padding: 1rem;
+        line-height: 2.5rem;
+        background-color: #F7D3EF;
+        font-family: 'Martel', serif;
+        font-size: 1em;
+    }
+
+}
+
+
+
+
+
+
+/* Device: laptop --------------------------------------- */
+@media (min-width: 1390px) {
+
+    main {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+
+    main > img {
+        border: 10px solid white;
+        box-shadow: 5px 5px 2px #F7D3EF;
+        padding: 5px;
+        width: 280px;
+        margin: 20px auto 20px auto;
+    }
+
+
+    /* Footer --------------------------------------- */
+
+
+    footer > ul:first-child {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 1em 0em 3em 0em;
+        background-color: white;
+        text-decoration: none;
+        font-family: 'Martel', serif;
+        font-size: 0.5em;
+        text-align: center;
+
 
     }
 
-    li {
-        list-style-type: none;
+    footer > ul:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        padding: 2em 0em 2em 0em;
+        text-align: center;
+        background-color: #F7D3EF;
+        text-decoration: none;
+        font-family: 'Martel', serif;
+        font-size: 0.5em;
+
 
     }
+
+    form {
+        width: 40%;
+        margin: auto auto 40px auto;
+        padding: 1rem;
+        line-height: 2.5rem;
+        background-color: #F7D3EF;
+        font-family: 'Martel', serif;
+        font-size: 1em;
+    }
+
+
 
 }
